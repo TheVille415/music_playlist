@@ -2,14 +2,17 @@ from Song import Song
 
 class Playlist:
   def __init__(self):
+    #our head
     self.__first_song = None
-
 
   # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
-    pass
-
+    new_song = Song(title)
+    #next song is current first song
+    new_song.get_next_song = self.__first_song
+    #now that we have a new song, our head becomes the new_song
+    self.__first_song = new_song
 
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
