@@ -28,7 +28,7 @@ class Playlist:
         found = True
       #if its not, then it will go to the next song and add 1 to the counter to help find its index
       else:
-        current_song = current_song.next()
+        current_song = current_song.get_next_song()
         counter += 1
 
     if found:
@@ -64,7 +64,7 @@ class Playlist:
   def length(self):
     counter = 0
     current_node = self.__first_song
-
+    #checks that the playlist has something in it, then returns the number of items in the playlist
     while current_node != None:
       counter += 1
       current_node = current_node.next
@@ -80,8 +80,13 @@ class Playlist:
 
   def print_songs(self):
     current_node = self.__first_song
-
+    #if there are no songs
     if current_node == None:
       print(f'This playlist has no songs! Add some songs!')
+    else:
+      #looks at the length of the list then prints the songs position and the name, then loops through to the next song
+      for i in range(self.length()):
+        print(f"{i+1}. {current_node}")
+        current_node = current_node.get_next_song()
 
   
