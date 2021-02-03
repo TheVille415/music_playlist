@@ -2,7 +2,7 @@ from Playlist import Playlist
 
 playlist = Playlist()
 
-while True:
+while True: 
 
   # Prints welcome message and options menu
   print('''
